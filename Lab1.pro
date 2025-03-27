@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     RealEstate.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    realestatemanager.cpp
 
 HEADERS += \
     RealEstate.h \
-    mainwindow.h
+    mainwindow.h \
+    realestatemanager.h
 
 FORMS += \
     mainwindow.ui

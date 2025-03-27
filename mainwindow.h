@@ -2,17 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTextEdit>
+#include <QTableWidget>
 #include <QPushButton>
-#include <QLabel>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QString>
-#include <QDebug>
-#include <ctime>
-#include <sstream>
-#include <iomanip>
-#include "realestate.h"
+#include "realestatemanager.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -22,18 +15,18 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButtonParse_clicked();
+    void updateTable();
+    void loadObjectsFromFile();
+    void addObject();
+    void removeObject();
 
 private:
-    QTextEdit *textEditDescription;
-    QPushButton *pushButtonParse;
-    QLabel *labelOwner;
-    QLabel *labelRegistrationDate;
-    QLabel *labelEstimatedCost;
-    QLabel *labelAddress;
-    QLabel *labelNumberOfRooms;
+    QTableWidget *tableWidget;
+    QPushButton *buttonLoad;
+    QPushButton *buttonAdd;
+    QPushButton *buttonRemove;
 
-    RealEstate realEstate;
+    RealEstateManager manager;
 };
 
 #endif // MAINWINDOW_H
