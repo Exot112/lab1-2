@@ -3,6 +3,7 @@
 #include <regex>
 #include <sstream>
 #include <iomanip>
+#include "logger.h"
 
 void RealEstate::parse(const std::string &description) {
     // Регулярное выражение для парсинга строки \"([^\"]+)\" - текст в ""; \\s+ - n-e кол-во пробелов;
@@ -11,7 +12,12 @@ void RealEstate::parse(const std::string &description) {
 
     // Совпадение регулярного выражения с описанием
     if (!std::regex_match(description, match, re)) {
+        try {
         throw std::invalid_argument("Invalid format");
+        }
+        catch (const std::exception &e) {
+            log << "Ошибка в строке при добавлении элемента:" << " (" << e.what() << ")\n";
+        }
     }
 
     // Извлечение данных из совпадений

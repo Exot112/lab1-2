@@ -1,4 +1,4 @@
-#include <QApplication>
+/*#include <QApplication>
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -12,4 +12,4 @@ int main(int argc, char *argv[])
 
     // Запуск цикла событий приложения
     return app.exec();
-}
+}*/

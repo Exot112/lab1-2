@@ -1,7 +1,30 @@
 #include "realestatemanager.h"
+#include "logger.h"
 #include <sstream>
 
 void RealEstateManager::loadFromFile(const std::string &filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file");
+    }
+
+    objects.clear();
+    std::string line;
+    int lineNumber = 1;
+    while (std::getline(file, line)) {
+        try {
+            RealEstate obj;
+            obj.parse(line);
+            objects.push_back(obj);
+        } catch (const std::exception &e) {
+            log << "Ошибка в строке " << lineNumber << ": " << line << " (" << e.what() << ")\n";
+        }
+        ++lineNumber;
+    }
+}
+
+
+/*void RealEstateManager::loadFromFile(const std::string &filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
         throw std::runtime_error("Failed to open file");
@@ -14,9 +37,9 @@ void RealEstateManager::loadFromFile(const std::string &filename) {
         obj.parse(line);
         objects.push_back(obj);
     }
-}
+}*/
 
-void RealEstateManager::saveToFile(const std::string &filename) const {
+/*void RealEstateManager::saveToFile(const std::string &filename) const {
     std::ofstream file(filename);
     if (!file.is_open()) {
         throw std::runtime_error("Failed to open file");
@@ -29,7 +52,7 @@ void RealEstateManager::saveToFile(const std::string &filename) const {
              << "\"" << obj.address << "\" "
              << obj.numberOfRooms << "\n";
     }
-}
+}*/
 
 void RealEstateManager::addObject(const RealEstate &object) {
     objects.push_back(object);

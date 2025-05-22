@@ -3,8 +3,8 @@
 #include <QMessageBox>
 #include <QTableWidgetItem>
 #include <QInputDialog>
-#include <QLineEdit> // Добавлено для использования QLineEdit
-#include <sstream>   // Добавлено для использования std::ostringstream
+#include <QLineEdit>
+#include <sstream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {

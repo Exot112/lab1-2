@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += testlib core#core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,12 +10,15 @@ CONFIG += c++17
 
 SOURCES += \
     RealEstate.cpp \
+    logger.cpp \
     main.cpp \
     mainwindow.cpp \
-    realestatemanager.cpp
+    realestatemanager.cpp \
+    test_realestate.cpp
 
 HEADERS += \
     RealEstate.h \
+    logger.h \
     mainwindow.h \
     realestatemanager.h
 

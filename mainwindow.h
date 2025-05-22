@@ -7,12 +7,17 @@
 #include <QVBoxLayout>
 #include "realestatemanager.h"
 
+
+
 class MainWindow : public QMainWindow {
     Q_OBJECT
+
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 
 private slots:
     void updateTable();
@@ -28,5 +33,6 @@ private:
 
     RealEstateManager manager;
 };
+
 
 #endif // MAINWINDOW_H
